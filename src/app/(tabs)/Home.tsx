@@ -1,8 +1,12 @@
-import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, FlatList} from 'react-native'
+import React, {useState} from 'react'
 import { Ionicons } from '@expo/vector-icons';
+import Category from '../Component/Category';
+import Discount from '../Component/Discount';
 
+const categories = ['Foods', 'Drinks', 'Snacks', 'Sauce']
 const Home = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null)
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -20,7 +24,7 @@ const Home = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.discount}>
+      {/* <View style={styles.discount}>
         <View style={styles.discount25}>
           <Text style={{color: '#000', fontSize: 48, fontFamily: 'Inter', fontWeight: '800',}}>
             25%
@@ -60,7 +64,9 @@ const Home = () => {
             *Terms and conditions applied
           </Text>
         </View>
-      </View>
+      </View> */}
+      
+      <Discount />
 
       <View style={{marginTop: 20, display: 'flex', alignItems: 'center'}}>
         <View style={styles.banner}>
@@ -77,6 +83,20 @@ const Home = () => {
           </Text>
         </View>
       </View>
+
+      <FlatList 
+        data={categories}
+        renderItem={({item}) => (
+          <Category 
+            item={item} 
+            selectedCategory = {selectedCategory} 
+            setSelectedCategory = {setSelectedCategory}
+          />
+        )}
+        keyExtractor={(item) => item}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}/>
+      {/* <Category /> */}
     </View>
   )
 }
