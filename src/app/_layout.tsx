@@ -16,6 +16,7 @@ export default function RootLayout() {
     SpaceMono: require('../../assets/fonts/SpaceMono-Regular.ttf'),
     Poppins: require('../../assets/fonts/Poppins-Regular.ttf'),
     Neat: require('../../assets/fonts/Pretty Neat.ttf'),
+    Inter: require('../../assets/fonts/Inter-Regular.ttf'),
   });
 
   useEffect(() => {
