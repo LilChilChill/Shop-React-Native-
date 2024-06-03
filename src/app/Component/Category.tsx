@@ -4,13 +4,16 @@ import React from 'react'
 const Category = ({item, selectedCategory, setSelectedCategory}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={() => setSelectedCategory(item)}>
-      <Text style={[styles.category, selectedCategory === item && {
-        color: "#FA4A0C", 
-        borderBottomWidth: 1, 
-        borderBottomColor: '#FA4A0C' 
-        }]}>
-          {item}
-      </Text>
+      <View style={{display: 'flex', alignItems: 'center', justifyContent: 'center', alignContent: 'center'}}>
+        <Text style={[styles.category, selectedCategory === item && {
+          color: "#FA4A0C", 
+          borderBottomWidth: 2, 
+          borderBottomColor: '#FA4A0C', 
+          textAlign: 'center',
+          }]}>
+            {item}
+        </Text>
+      </View>
     </TouchableOpacity>
   )
 }
@@ -19,7 +22,7 @@ export default Category
 const styles = StyleSheet.create({
   container:{
     display: 'flex',
-    paddingLeft: 40,
+    paddingHorizontal: 20,
     alignContent: 'center',
     alignItems: 'center',
     paddingTop: 20,
@@ -29,6 +32,5 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontFamily: 'Poppins',
     fontWeight: '400',
-    textAlign: 'center'
   }
 })

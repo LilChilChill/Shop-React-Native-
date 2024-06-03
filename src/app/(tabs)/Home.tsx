@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import Category from '../Component/Category';
 import Discount from '../Component/Discount';
+import Drink from '../Component/Drink';
 
 const categories = ['Foods', 'Drinks', 'Snacks', 'Sauce']
 const Home = () => {
@@ -24,48 +25,6 @@ const Home = () => {
         </TouchableOpacity>
       </View>
 
-      {/* <View style={styles.discount}>
-        <View style={styles.discount25}>
-          <Text style={{color: '#000', fontSize: 48, fontFamily: 'Inter', fontWeight: '800',}}>
-            25%
-            <Text style={{color: '#fff', fontSize: 16, fontFamily: 'Inter', fontWeight: '800',}}>{'\t'} {'\t'} {'\t'}off</Text>
-          </Text>
-
-          <Text style={{color: '#fff', fontSize: 12, fontFamily: 'Inter', fontWeight: '400',}}>
-            on all <Text style={{fontWeight: 'bold',}}>sushi</Text> orders {'\n'}
-            across app*
-          </Text>
-
-          <Text style={{color: 'black', fontSize: 10, fontFamily: 'Inter', fontWeight: '700', marginTop: 5}}>
-            Valid till 25th Dec, 2023
-          </Text>
-
-          <Text style={{color: 'white', fontSize: 5, fontFamily: 'Inter', fontWeight: '400', position: 'relative', top: 10, left: 60}}>
-            *Terms and conditions applied
-          </Text>
-        </View>
-
-        <View style={styles.discount50}>
-          <Text style={{color: '#000', fontSize: 48, fontFamily: 'Inter', fontWeight: '800',}}>
-            50%
-            <Text style={{color: '#fff', fontSize: 16, fontFamily: 'Inter', fontWeight: '800',}}>{'\t'} {'\t'} {'\t'}off</Text>
-          </Text>
-
-          <Text style={{color: '#fff', fontSize: 12, fontFamily: 'Inter', fontWeight: '400',}}>
-            on all <Text style={{fontWeight: 'bold',}}>Mac n Cheese</Text>{'\n'}
-            orders across app*
-          </Text>
-
-          <Text style={{color: 'black', fontSize: 10, fontFamily: 'Inter', fontWeight: '700', marginTop: 5}}>
-            Valid till 25th Dec, 2023
-          </Text>
-
-          <Text style={{color: 'white', fontSize: 5, fontFamily: 'Inter', fontWeight: '400', position: 'relative', top: 10, left: 60}}>
-            *Terms and conditions applied
-          </Text>
-        </View>
-      </View> */}
-      
       <Discount />
 
       <View style={{marginTop: 20, display: 'flex', alignItems: 'center'}}>
@@ -84,19 +43,24 @@ const Home = () => {
         </View>
       </View>
 
-      <FlatList 
-        data={categories}
-        renderItem={({item}) => (
-          <Category 
-            item={item} 
-            selectedCategory = {selectedCategory} 
-            setSelectedCategory = {setSelectedCategory}
-          />
-        )}
-        keyExtractor={(item) => item}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}/>
-      {/* <Category /> */}
+      <View style={{display: 'flex', alignItems: 'center'}}>
+        <FlatList 
+          data={categories}
+          renderItem={({item}) => (
+            <Category 
+              item={item} 
+              selectedCategory = {selectedCategory} 
+              setSelectedCategory = {setSelectedCategory}
+            />
+          )}
+          keyExtractor={(item) => item}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+      
+      <Drink />
+
     </View>
   )
 }
